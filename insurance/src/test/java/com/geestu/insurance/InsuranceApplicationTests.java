@@ -20,13 +20,20 @@ public class InsuranceApplicationTests {
 
     @Test
     public void testSelect() {
-        System.out.println(("----- selectAll method test ------"));
-        
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.between(true, "age", 18, 20);
-        //IPage<User> page = userMapper.selectPage(new Page<>(1, 2), queryWrapper);
-        IPage<User> page = userServiceImpl.page(new Page<>(1, 2), queryWrapper);
+        queryWrapper.between(true, "age", 18, 30);
+        IPage<User> page = userServiceImpl.page(new Page<>(1, 10), queryWrapper);
         page.getRecords().forEach(System.err::println);
+    }
+    
+    @Test
+    public void testAutoIncrement() {
+      User entity = new User();
+      entity.setName("sysecho");
+      entity.setAge(Integer.valueOf(26));
+      entity.setEmail("myword0523@gmail.com");
+      userServiceImpl.save(entity);
+      System.err.println(entity.getId());
     }
 }
 

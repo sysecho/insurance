@@ -1,6 +1,5 @@
 package com.geestu.insurance.user.entity;
 
-import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.experimental.Accessors;
 

@@ -1,7 +1,6 @@
 package com.geestu.insurance.user.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -13,12 +12,14 @@ import lombok.experimental.Accessors;
  * @since 2018-12-18
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 public class User {
 
-    private static final long serialVersionUID = 1L;
-
+    /**
+     * 主键
+     */
+    private Long id;
+    
     /**
      * 姓名
      */
@@ -33,14 +34,5 @@ public class User {
      * 邮箱
      */
     private String email;
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-      return "User [name=" + name + ", age=" + age + ", email=" + email + "]";
-    }
-
 
 }

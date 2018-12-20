@@ -1,5 +1,7 @@
 package com.geestu.insurance;
 
+import java.util.Arrays;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.geestu.insurance.enums.Sex;
 import com.geestu.insurance.user.entity.User;
 import com.geestu.insurance.user.service.IUserService;
 
@@ -30,10 +33,16 @@ public class InsuranceApplicationTests {
     public void testAutoIncrement() {
       User entity = new User();
       entity.setName("sysecho");
+      entity.setSex(Sex.FEMAL);
       entity.setAge(Integer.valueOf(26));
       entity.setEmail("myword0523@gmail.com");
       userServiceImpl.save(entity);
       System.err.println(entity.getId());
+    }
+    
+    @Test
+    public void testLogicDeleteById() {
+    	userServiceImpl.removeByIds(Arrays.asList(1, 2, 3));
     }
 }
 

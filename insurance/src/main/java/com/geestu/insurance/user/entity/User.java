@@ -1,5 +1,9 @@
 package com.geestu.insurance.user.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.geestu.insurance.enums.Sex;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -34,5 +38,17 @@ public class User {
      * 邮箱
      */
     private String email;
+    
+    /**
+     * 性别
+     */
+    private Sex sex;
+    
+    /**
+     * 逻辑删除
+     */
+    @TableLogic
+    @TableField("is_delete")
+    private String delete;
 
 }
